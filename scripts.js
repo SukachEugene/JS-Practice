@@ -15,30 +15,40 @@ function createFilters() {
 
 let elements = document.getElementsByClassName("element");
 
+// variable for saving and check last filter element
+let lastFilter;
+
 function getFilter(event) {
 
-   if (event.target.classList.contains('all')) {
-
-    for (i = 0; i < elements.length; i++) {
-        elements[i].style.display = 'flex';
+    // check for dounle click for the same filter
+    if (event.target == lastFilter) {
+        return;
     }
 
-   } else {
+    lastFilter = event.target;
 
-    let currentFilter = event.target.className.split(" ");
+    if (event.target.classList.contains('all')) {
 
-    for (i = 0; i < elements.length; i++) {
-        for (j =0; j < currentFilter.length; j++) {
+        for (i = 0; i < elements.length; i++) {
+            elements[i].style.display = 'flex';
+        }
 
-            if (elements[i].classList.contains(currentFilter[j])) {
-                elements[i].style.display = 'flex';
-            } else {
-                elements[i].style.display = 'none';
+    } else {
+
+        let currentFilter = event.target.className.split(" ");
+
+        for (i = 0; i < elements.length; i++) {
+            for (j = 0; j < currentFilter.length; j++) {
+
+                if (elements[i].classList.contains(currentFilter[j])) {
+                    elements[i].style.display = 'flex';
+                } else {
+                    elements[i].style.display = 'none';
+                }
             }
         }
-    }
 
-   } 
+    }
 }
 
 
@@ -74,7 +84,7 @@ createPopupOpens();
 
 function popupOpen(event) {
 
-     // check correct target element
+    // check correct target element
     let element;
     if (event.target.classList.contains('element')) {
         element = event.target
@@ -92,16 +102,16 @@ function popupOpen(event) {
     popupTitle[0].innerHTML = title;
 
     let descriptions = element.getElementsByClassName('element-description');
-    description= descriptions[0].textContent;
+    description = descriptions[0].textContent;
 
     let popupDescription = document.getElementsByClassName('popup-description');
     popupDescription[0].innerHTML = description;
 
 
     // change popup's color
-    color = window.getComputedStyle(element).getPropertyValue('background-color'); 
+    color = window.getComputedStyle(element).getPropertyValue('background-color');
     popup[0].style.backgroundColor = color;
-   
+
 
     // get faded background of popup element
     document.getElementById('fade').style.display = 'block';
@@ -120,7 +130,7 @@ function createPopupCloses() {
 function closePopup() {
     let popup = document.getElementsByClassName('popup');
     popup[0].style.display = 'none';
-    
+
     document.getElementById('fade').style.display = 'none';
 }
 
@@ -129,7 +139,7 @@ createPopupCloses();
 
 function closePopupByFade(event) {
     let area = document.getElementById('fade')
-    area.addEventListener('click',closePopup)
+    area.addEventListener('click', closePopup)
 }
 
 closePopupByFade();
