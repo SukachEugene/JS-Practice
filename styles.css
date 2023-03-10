@@ -10,7 +10,7 @@ body {
 .buttons-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     flex-wrap: wrap;
     gap: 50px;
 }
@@ -143,4 +143,19 @@ body {
     -moz-opacity: 0.8;
     opacity: .80;
     filter: alpha(opacity=80);
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+input {
+    width: 250px;
+    height: 30px;
+}
+
+input::placeholder {
+    text-align: center;
 }
