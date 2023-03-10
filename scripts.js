@@ -74,31 +74,32 @@ createPopupOpens();
 
 function popupOpen(event) {
 
+     // check correct target element
+    let element;
+    if (event.target.classList.contains('element')) {
+        element = event.target
+    } else {
+        element = event.target.parentElement;
+    }
+
     let popup = document.getElementsByClassName('popup');
     popup[0].style.display = 'flex';
 
-    let titles = event.target.parentElement.getElementsByClassName('element-title');
+    let titles = element.getElementsByClassName('element-title');
     title = titles[0].textContent;
 
     let popupTitle = document.getElementsByClassName('popup-title');
     popupTitle[0].innerHTML = title;
 
-    let descriptions = event.target.parentElement.getElementsByClassName('element-description');
+    let descriptions = element.getElementsByClassName('element-description');
     description= descriptions[0].textContent;
 
     let popupDescription = document.getElementsByClassName('popup-description');
     popupDescription[0].innerHTML = description;
 
 
-    // check correct target element and change popup's color
-    let colorElement;
-    if (event.target.classList.contains('element')) {
-        colorElement = event.target
-    } else {
-        colorElement = event.target.parentElement;
-    }
-
-    color = window.getComputedStyle(colorElement).getPropertyValue('background-color'); 
+    // change popup's color
+    color = window.getComputedStyle(element).getPropertyValue('background-color'); 
     popup[0].style.backgroundColor = color;
    
 
