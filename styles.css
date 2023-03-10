@@ -1,0 +1,143 @@
+
+body {
+    background-color: lightgray;
+}
+
+.container {
+    padding: 50px 200px;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.buttons-container button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.elements-container {
+    display: flex;
+    width: 100%;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.element {
+    cursor: pointer;
+    width: 10%;
+    padding: 10px;
+    background-color: grey;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.element-title {
+    text-align: center;
+    font-size: large;
+}
+
+.element-description {
+    text-align: center;
+}
+
+.popup-title {
+    font-size: x-large;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.element.one {
+    background-color: red;
+    border: 2px solid red;
+}
+
+.element.two {
+    background-color: orange;
+    border: 2px solid orange;
+}
+
+.element.three {
+    background-color: yellow;
+    border: 2px solid yellow;
+}
+
+.element.four {
+    background-color: blue;
+    border: 2px solid blue;
+}
+
+.element.five {
+    background-color: green;
+    border: 2px solid green;
+}
+
+.element-description {
+    display: none;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    background-color:  purple;
+    width: 30%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.popup-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.popup-close img {
+    width: 30px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.buttons-container .active {
+    background-color: aqua;
+}
+
+.buttons-container button:hover {
+    background-color: aqua;
+}
+
+.element:hover {
+    border: 2px solid black;
+}
+
+#fade {
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 2;
+    -moz-opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+}
