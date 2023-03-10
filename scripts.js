@@ -143,3 +143,34 @@ function closePopupByFade(event) {
 }
 
 closePopupByFade();
+
+
+
+
+// --------------------- Search form ---------------------
+
+let form = document.getElementById('form');
+
+
+form.addEventListener('submit', search);
+
+function search (e) {
+    e.preventDefault();
+  
+    let search = document.getElementById('search-text').value.toLowerCase();
+
+    let descriptionsArray = document.getElementsByClassName('element-description');
+
+    for (i = 0; i < descriptionsArray.length; i++) {
+        let text = descriptionsArray[i].textContent.toLowerCase();
+        if (text.includes(search)) {
+            elements[i].style.display = 'flex';
+        } else {
+            elements[i].style.display = 'none';
+        }
+    } 
+
+    // change style of filter button
+    let current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+}
