@@ -28,7 +28,6 @@ function getFilter(event) {
     let currentFilter = event.target.className.split(" ");
 
     for (i = 0; i < elements.length; i++) {
-
         for (j =0; j < currentFilter.length; j++) {
 
             if (elements[i].classList.contains(currentFilter[j])) {
@@ -62,6 +61,7 @@ function changeButtonStyle() {
 
 
 
+
 // --------------------- Element's pop-up mechanic ---------------------
 
 function createPopupOpens() {
@@ -89,18 +89,23 @@ function popupOpen(event) {
     let popupDescription = document.getElementsByClassName('popup-description');
     popupDescription[0].innerHTML = description;
 
-    // let color = event.target.parentElement.getElementsByClassName('element')[0].getPropertyValue('background-color');
-    // color = window.getComputedStyle(color1).backgroundColor;
 
-    // console.log(color)
-    // console.log(window.getComputedStyle( document.color ,null).getPropertyValue('background-color'));  
+    // check correct target element and change popup's color
+    let colorElement;
+    if (event.target.classList.contains('element')) {
+        colorElement = event.target
+    } else {
+        colorElement = event.target.parentElement;
+    }
 
-    // console.log(window.getComputedStyle( document.body ,null).getPropertyValue('background-color'));  
+    color = window.getComputedStyle(colorElement).getPropertyValue('background-color'); 
+    popup[0].style.backgroundColor = color;
+   
 
-
+    // get faded background of popup element
     document.getElementById('fade').style.display = 'block';
-
 }
+
 
 let close = document.getElementsByClassName("popup-close");
 
@@ -110,12 +115,14 @@ function createPopupCloses() {
     }
 }
 
+
 function closePopup() {
     let popup = document.getElementsByClassName('popup');
     popup[0].style.display = 'none';
     
     document.getElementById('fade').style.display = 'none';
 }
+
 
 createPopupCloses();
 
