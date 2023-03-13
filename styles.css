@@ -24,7 +24,7 @@ body {
 .elements-container {
     display: flex;
     width: 100%;
-    gap: 50px;
+    gap: 40px;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -48,6 +48,8 @@ body {
 
 .element-description {
     text-align: center;
+    padding-top: 5px;
+    font-size: 12px;
 }
 
 .popup-title {
@@ -79,10 +81,6 @@ body {
 .element.five {
     background-color: green;
     border: 2px solid green;
-}
-
-.element-description {
-    display: none;
 }
 
 .popup {
@@ -154,6 +152,7 @@ form {
 input {
     width: 250px;
     height: 30px;
+    text-align: center;
 }
 
 input::placeholder {

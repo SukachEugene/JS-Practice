@@ -42,6 +42,7 @@ function getFilter(event) {
 
                 if (elements[i].classList.contains(currentFilter[j])) {
                     elements[i].style.display = 'flex';
+                    break;
                 } else {
                     elements[i].style.display = 'none';
                 }
@@ -63,8 +64,14 @@ function changeButtonStyle() {
         filters[i].addEventListener('click', function () {
 
             let current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
+
+            if (current[0] == undefined) {
+                this.className += " active";
+            } else {
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            }
+
         })
     }
 }
@@ -172,5 +179,14 @@ function search (e) {
 
     // change style of filter button
     let current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
+
+    if (current[0] == undefined) {
+        this.className += " active";
+    } else {
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+    }
+
+    // revrite variable for correct future filtering
+    lastFilter = null;
 }
