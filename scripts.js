@@ -190,3 +190,60 @@ function search (e) {
     // revrite variable for correct future filtering
     lastFilter = null;
 }
+
+
+
+
+
+pasreNumber1('523912')
+
+function pasreNumber1(number) {
+
+    let array = number.split('')
+    let string = ''
+
+    for (i = 0; i < number.length; i++) {
+        string += array[i]
+
+        charge = number.length - i
+
+        for (j = 1; j < charge; j++) {
+            string += '0'
+        }
+
+        if ( i + 1 != number.length) {
+            string += ' + '
+        }
+        
+    }
+    
+    console.log(string)
+    return string
+
+}
+
+
+
+pasreNumber2('5239')
+
+function pasreNumber2(number) {
+
+    let array = number.split('')
+    let string = ''
+
+    for (i = 0; i < number.length; i++) {
+
+        charge = number.length - i
+        multiplier = 10 ** (charge - 1)
+        string += array[i] * multiplier
+
+        if ( i + 1 != number.length) {
+            string += ' + '
+        }  
+    }
+    
+    console.log(string)
+    return string
+
+}
+
